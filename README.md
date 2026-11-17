@@ -153,4 +153,3 @@ Code structure is free to adapt for personal portfolio use.
 
 ---
 
-*Built with 🌸 Antigravity AI*
