@@ -1,0 +1,580 @@
+/* ============================================================
+   ANISA AURALITA ASZAHRA — Portfolio
+   responsive.css  |  Breakpoints & Adaptive Layout
+   ============================================================ */
+
+/* ── Breakpoints ─────────────────────────────────────────── */
+/*
+   Desktop   : 1200px +
+   Laptop    : 992px – 1199px
+   Tablet    : 768px – 991px
+   Mobile    : up to 767px
+   Sm Mobile : up to 480px
+*/
+
+/* ── Desktop 1200px+ ─────────────────────────────────────── */
+@media (min-width: 1200px) {
+  .hero-name {
+    font-size: 3.5rem;
+  }
+
+  .hero-inner {
+    gap: 5rem;
+  }
+
+  .photo-frame {
+    width: 360px;
+    height: 440px;
+  }
+
+  .contact-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .certs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Peek cat visible on desktop */
+  .peek-cat-wrapper {
+    display: block;
+  }
+}
+
+/* ── Laptop 992px – 1199px ───────────────────────────────── */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero-name {
+    font-size: 2.75rem;
+  }
+
+  .photo-frame {
+    width: 290px;
+    height: 360px;
+  }
+
+  .hero-inner {
+    gap: 3rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .certs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .peek-cat-wrapper {
+    display: none;
+  }
+}
+
+/* ── Tablet 768px – 991px ────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+
+  /* Navbar — switch to hamburger */
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-inner {
+    justify-content: flex-start;
+    padding: 1rem 1.5rem;
+  }
+
+  /* Navbar brand placeholder (no logo in this design — spacer) */
+  .navbar-inner::before {
+    content: 'Anisa ✨';
+    font-family: var(--font-handwritten);
+    font-size: 1.1rem;
+    color: var(--deep-plum);
+  }
+
+  /* Hero — stack layout */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+    padding-top: 1rem;
+  }
+
+  .hero-photo-col {
+    order: -1;
+  }
+
+  .photo-frame {
+    width: 240px;
+    height: 300px;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+  }
+
+  .hero-socials {
+    justify-content: center;
+  }
+
+  .hero-desc {
+    margin-inline: auto;
+  }
+
+  .bio-cards {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .hero-cat {
+    right: 20px;
+    bottom: 0;
+  }
+
+  /* About */
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-sidebar {
+    position: static;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .peek-cat-wrapper {
+    display: none;
+  }
+
+  /* Projects — 1+2 composition on tablet */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .project-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+  }
+
+  .project-card.featured .browser-mockup {
+    border-radius: 0;
+    height: 100%;
+  }
+
+  .project-card.featured .browser-screen {
+    flex: 1;
+    height: 100%;
+    min-height: 250px;
+    aspect-ratio: auto;
+  }
+
+  .project-card.featured .project-body {
+    padding: 1.25rem;
+  }
+
+  .project-card.featured .project-title {
+    font-size: 1.25rem;
+  }
+
+  .project-card.featured .project-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+
+  /* Certs */
+  .certs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Contact */
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── Floating Cat Tablet ── */
+  .floating-cat {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 82px;
+    height: 82px;
+  }
+
+  .scroll-top {
+    bottom: 7rem;
+    right: 1.6rem;
+  }
+}
+
+/* ── Mobile up to 767px ──────────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* ── Variables override for smaller spacing ── */
+  :root {
+    --space-4xl: 4rem;
+    --space-3xl: 3rem;
+  }
+
+  /* ── Navbar ── */
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-inner {
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+  }
+
+  .navbar-inner::before {
+    content: 'Anisa ✨';
+    font-family: var(--font-handwritten);
+    font-size: 1.1rem;
+    color: var(--deep-plum);
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding-top: 4.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-photo-col {
+    order: -1;
+  }
+
+  .photo-frame {
+    width: 200px;
+    height: 250px;
+  }
+
+  .hero-name {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .hero-nickname {
+    font-size: 1.3rem;
+    justify-content: center;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    margin-inline: auto;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-socials {
+    justify-content: center;
+  }
+
+  .bio-cards {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .hero-cat {
+    display: none; /* hidden on small screens to save space */
+  }
+
+  /* ── About ── */
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-sidebar {
+    position: static;
+  }
+
+  .about-sleep-cat svg {
+    width: 100px;
+    height: auto;
+  }
+
+  /* ── Skills ── */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .peek-cat-wrapper {
+    display: none;
+  }
+
+  /* ── Projects — Single column layout on mobile ── */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .project-card.featured {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card.featured .browser-mockup {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    height: auto;
+  }
+
+  .project-card.featured .browser-screen {
+    aspect-ratio: 16 / 9;
+    min-height: auto;
+    height: auto;
+  }
+
+  .project-card.featured .project-body {
+    padding: var(--space-lg);
+  }
+
+  .project-card.featured .project-title {
+    font-size: 1.15rem;
+  }
+
+  /* ── Certs ── */
+  .certs-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+
+  /* ── Contact ── */
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .contact-card {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .contact-card-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contact-heading {
+    font-size: clamp(1.5rem, 6vw, 2.25rem);
+  }
+
+  /* ── Footer ── */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* ── Cat Speech Bubbles Mobile Typography ── */
+  .cat-bubble,
+  .hero-cat .cat-bubble,
+  .about-sleep-cat .cat-bubble,
+  .peek-cat-wrapper .cat-bubble,
+  .projects .cat-bubble,
+  #proyek .cat-bubble,
+  .contact-cat .cat-bubble,
+  .floating-cat .cat-bubble,
+  .drawer-cat .cat-bubble {
+    font-size: 13px;
+  }
+
+  .cat-bubble {
+    white-space: normal;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  /* ── Floating Cat Mobile & Scroll top btn ── */
+  .floating-cat {
+    bottom: 1rem;
+    right: 1rem;
+    width: 72px;
+    height: 72px;
+  }
+
+  .floating-cat .cat-bubble {
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 0.45rem 0.8rem;
+    max-width: 180px;
+  }
+
+  .floating-cat .cat-bubble::after {
+    right: 20px;
+  }
+
+  .scroll-top {
+    bottom: 6rem;
+    right: 1.35rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  /* ── Section headings ── */
+  .section-heading {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+}
+
+/* ── Small Mobile up to 480px ────────────────────────────── */
+@media (max-width: 480px) {
+
+  :root {
+    --space-4xl: 3rem;
+    --space-3xl: 2.5rem;
+    --space-2xl: 2rem;
+  }
+
+  .hero-name {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .photo-frame {
+    width: 170px;
+    height: 215px;
+  }
+
+  .btn {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.875rem;
+  }
+
+  .skill-tags {
+    gap: 0.35rem;
+  }
+
+  .skill-tag {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+    margin-inline: auto;
+  }
+
+  .tech-tags {
+    gap: 0.25rem;
+  }
+
+  .tech-tag {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.6rem;
+  }
+
+  .bio-card {
+    padding: 0.75rem;
+  }
+
+  .bio-card-label {
+    font-size: 0.6rem;
+  }
+
+  .bio-card-value {
+    font-size: 0.8rem;
+  }
+
+  .goals-card {
+    padding: 1.5rem;
+  }
+
+  .footer-nav {
+    gap: 0.5rem;
+  }
+
+  .footer-nav a {
+    font-size: 0.75rem;
+  }
+
+  /* ── Floating Cat Small Mobile ── */
+  .floating-cat {
+    bottom: 0.75rem;
+    right: 0.75rem;
+    width: 66px;
+    height: 66px;
+  }
+
+  .scroll-top {
+    bottom: 5.25rem;
+    right: 1.15rem;
+  }
+}
+
+/* ── Print styles ────────────────────────────────────────── */
+@media print {
+  .navbar,
+  .hamburger,
+  .mobile-drawer,
+  .drawer-backdrop,
+  .scroll-top,
+  .hero-cat,
+  .peek-cat-wrapper,
+  .floating-cat {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  .section {
+    page-break-inside: avoid;
+    padding-block: 2rem;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+}

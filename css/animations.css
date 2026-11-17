@@ -1,0 +1,333 @@
+/* ============================================================
+   ANISA AURALITA ASZAHRA — Portfolio
+   animations.css  |  Keyframes, Scroll Reveal, Hover FX
+   ============================================================ */
+
+/* ── Reduced Motion Preference ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Keyframes ───────────────────────────────────────────── */
+
+/* Fade in upward — used for section entry */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade in from right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Float — gentle up/down for the photo blob & cat */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* Cat tail wag */
+@keyframes tailWag {
+  0%, 100% {
+    transform: rotate(-10deg);
+    transform-origin: top center;
+  }
+  50% {
+    transform: rotate(10deg);
+    transform-origin: top center;
+  }
+}
+
+/* Cat idle breathing (subtle scale) */
+@keyframes idleBreath {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1);
+  }
+  40% {
+    transform: scaleY(1.025) scaleX(0.98);
+  }
+  60% {
+    transform: scaleY(0.98) scaleX(1.015);
+  }
+}
+
+/* Blink — cursor or eye animation */
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.08);
+  }
+}
+
+/* Pop in — for speech bubbles and tags */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(8px);
+  }
+  70% {
+    transform: scale(1.05) translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Star spin */
+@keyframes starSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Peek in — cat slides up from bottom */
+@keyframes peekIn {
+  from {
+    transform: translateY(70%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/* Doodle draw — stroke dashoffset animation */
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Shimmer — for loading/placeholder states */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+/* Wiggle — micro interaction */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%  { transform: rotate(-5deg); }
+  75%  { transform: rotate(5deg); }
+}
+
+/* Pulse — soft glow */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 143, 154, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(201, 143, 154, 0);
+  }
+}
+
+/* ── Scroll Reveal Classes ───────────────────────────────── */
+
+/* Base: elements start hidden */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* When IntersectionObserver fires */
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Stagger delays — apply to children */
+.stagger > * { transition-delay: 0ms; }
+.stagger > *:nth-child(1)  { transition-delay: 0ms;  }
+.stagger > *:nth-child(2)  { transition-delay: 80ms; }
+.stagger > *:nth-child(3)  { transition-delay: 160ms;}
+.stagger > *:nth-child(4)  { transition-delay: 240ms;}
+.stagger > *:nth-child(5)  { transition-delay: 320ms;}
+.stagger > *:nth-child(6)  { transition-delay: 400ms;}
+
+/* ── Applied Animations ──────────────────────────────────── */
+
+/* Photo blob float */
+.photo-blob {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Frame deco ring counter float */
+.frame-deco-ring {
+  animation: float 7s ease-in-out infinite reverse;
+}
+
+/* Frame star spin */
+.frame-deco-star1 {
+  animation: starSpin 8s linear infinite;
+  display: inline-block;
+}
+
+.frame-deco-star2 {
+  animation: starSpin 6s linear infinite reverse;
+  display: inline-block;
+}
+
+/* Frame dot float */
+.frame-deco-dot {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Cat mascot idle breath */
+.cat-body-group {
+  animation: idleBreath 3.5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Cat tail wag */
+.cat-tail {
+  animation: tailWag 1.2s ease-in-out infinite;
+  transform-origin: 50% 0%;
+}
+
+/* Cat eye blink */
+.cat-eye {
+  animation: blink 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Peek cat animation */
+.peek-cat-wrapper .cat-mascot {
+  animation: peekIn 0.8s ease-out forwards;
+}
+
+/* Speech bubble pop in */
+.cat-bubble.visible {
+  animation: popIn 0.3s ease-out forwards;
+}
+
+/* Skill tag hover wiggle */
+.skill-tag:hover {
+  animation: wiggle 0.4s ease;
+}
+
+/* Contact card icon pulse on hover */
+.contact-card:hover .contact-card-icon {
+  animation: pulse 1.5s ease-in-out 1;
+}
+
+/* Nav contact btn subtle pulse */
+.nav-contact-btn {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Hero CTA primary button pulse on load */
+.btn-primary.hero-pulse {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+/* Doodle star decor spin */
+.deco-spin {
+  display: inline-block;
+  animation: starSpin 10s linear infinite;
+}
+
+/* Section heading underline draw (for headings with .draw-underline) */
+.draw-underline {
+  position: relative;
+}
+.draw-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--muted-rose), var(--lavender));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease 0.3s;
+}
+.draw-underline.visible::after {
+  transform: scaleX(1);
+}
+
+/* Card hover lift (extra definition for project & cert cards) */
+.project-card,
+.cert-card,
+.bio-card,
+.skill-group,
+.contact-card {
+  will-change: transform, box-shadow;
+}
+
+/* Shimmer placeholder */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(200, 184, 229, 0.15) 25%,
+    rgba(200, 184, 229, 0.3) 50%,
+    rgba(200, 184, 229, 0.15) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite;
+}
