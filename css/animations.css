@@ -316,7 +316,8 @@
 .cert-card,
 .bio-card,
 .skill-group,
-.contact-card {
+.contact-card,
+.service-card {
   will-change: transform, box-shadow;
 }
 

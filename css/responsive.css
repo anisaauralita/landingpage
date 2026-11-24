@@ -157,6 +157,35 @@
     display: none;
   }
 
+  /* Services — 2 columns on tablet */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .service-modal-body {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .service-modal-dialog {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .service-modal-order-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .services-cta {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-lg);
+  }
+
+  .services-cta-content {
+    max-width: 100%;
+  }
+
   /* Projects — 1+2 composition on tablet */
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -340,6 +369,73 @@
     display: none;
   }
 
+  /* ── Services — Single column on mobile ── */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .services-intro {
+    font-size: 0.95rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .service-modal-body {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .service-modal-dialog {
+    padding: var(--space-xl) var(--space-md);
+    max-height: 90vh;
+  }
+
+  .service-modal-order-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .service-modal-desc {
+    font-size: 0.875rem;
+  }
+
+  .service-scope-list li {
+    font-size: 0.825rem;
+  }
+
+  .service-selected-banner {
+    padding: var(--space-md) var(--space-md);
+  }
+
+  .service-selected-banner .selected-text {
+    font-size: 1rem;
+  }
+
+  .services-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
+  }
+
+  .services-cta-content {
+    max-width: 100%;
+  }
+
+  .services-cta-title {
+    font-size: 1.25rem;
+  }
+
+  .services-cta-desc {
+    font-size: 0.875rem;
+  }
+
+  .services-cta-btn {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+  }
+
   /* ── Projects — Single column layout on mobile ── */
   .projects-grid {
     grid-template-columns: 1fr;
@@ -484,6 +580,10 @@
   .btn {
     padding: 0.65rem 1.4rem;
     font-size: 0.875rem;
+  }
+
+  .service-card-actions {
+    flex-direction: column;
   }
 
   .skill-tags {
